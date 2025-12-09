@@ -1,256 +1,218 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mercedes — Heritage · Innovation · Performance</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercedes — Heritage · Innovation · Performance</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#00a3ff;
-      --muted:#9aa7b2;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      --maxw:1100px;
-    }
+<style>
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#00a3ff;
+  --muted:#9aa7b2;
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
 
-    body{
-      font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
-      margin:0;
-      background:linear-gradient(180deg,#071021 0%, #071827 60%);
-      color:#e6eef6;
-    }
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:linear-gradient(180deg,#071021,#071827);
+  color:#e6eef6;
+}
 
-    .container{max-width:var(--maxw); margin:40px auto; padding:24px}
+.container{max-width:1100px;margin:40px auto;padding:24px}
 
-    header{display:flex; align-items:center; justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:48px;height:48px;border-radius:50%;
-      background:#000;
-      display:flex;align-items:center;justify-content:center;
-      font-weight:800;color:var(--accent)
-    }
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    nav a:hover{color:var(--accent)}
+.logo{
+  width:46px;height:46px;border-radius:50%;
+  background:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:var(--accent)
+}
 
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px}
-    .hero-card{
-      background:rgba(255,255,255,0.03);
-      padding:28px;border-radius:20px;
-    }
+nav a{
+  margin-left:18px;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+}
 
-    .hero h2{font-size:34px;margin:0 0 8px}
-    .lead{color:var(--muted)}
+.hero{
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:28px;
+  margin-top:30px;
+}
 
-    .cta{
-      display:inline-block;
-      background:linear-gradient(90deg,var(--accent),#0066cc);
-      padding:12px 18px;border-radius:12px;
-      color:#051022;font-weight:700;text-decoration:none
-    }
+.hero-card{
+  background:rgba(255,255,255,0.04);
+  padding:28px;
+  border-radius:18px;
+}
 
-    .media{border-radius:14px;overflow:hidden}
-    .media img{width:100%;height:100%;object-fit:cover}
+.cta{
+  display:inline-block;
+  margin-top:14px;
+  padding:12px 18px;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--accent),#0066cc);
+  color:#04101f;
+  font-weight:700;
+  text-decoration:none;
+}
 
-    section{margin-top:30px}
+.media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:16px;
+}
 
-    .card{background:var(--card);padding:18px;border-radius:14px}
-    .muted{color:var(--muted)}
+section{margin-top:40px}
 
-    .timeline{display:flex;flex-direction:column;gap:14px}
-    .item{display:flex;gap:14px}
-    .dot{
-      min-width:46px;height:46px;border-radius:12px;
-      background:var(--glass);
-      display:flex;align-items:center;justify-content:center;
-      color:var(--accent);font-weight:700
-    }
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:14px;
+}
 
-    .models{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:16px;
-    }
+.models{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
 
-    .model-card{
-      background:rgba(255,255,255,0.03);
-      border-radius:12px;
-      overflow:hidden;
-      transition:transform .3s;
-    }
+.model-card{
+  background:rgba(255,255,255,0.04);
+  border-radius:14px;
+  overflow:hidden;
+}
 
-    .model-card:hover{transform:translateY(-4px)}
+.model-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
 
-    .model-card img{
-      width:100%;height:160px;object-fit:cover
-    }
+.model-info{padding:14px}
 
-    .model-info{padding:12px}
+footer{
+  margin-top:50px;
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+}
 
-    table{width:100%;border-collapse:collapse;margin-top:12px}
-    th,td{padding:12px;border-bottom:1px solid rgba(255,255,255,0.05)}
-    th{color:var(--muted)}
-
-    footer{
-      margin-top:40px;
-      display:flex;justify-content:space-between;
-      color:var(--muted)
-    }
-
-    @media(max-width:880px){
-      .hero{grid-template-columns:1fr}
-    }
-  </style>
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 <div class="container">
 
 <header>
-  <div class="brand">
+  <div style="display:flex;align-items:center;gap:12px">
     <div class="logo">M</div>
     <div>
-      <h1>Mercedes</h1>
-      <div class="muted">Heritage • Innovation • Performance</div>
+      <strong>Mercedes</strong><br>
+      <span style="color:var(--muted)">Heritage • Innovation • Performance</span>
     </div>
   </div>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#history">History</a>
     <a href="#models">Models</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-card">
-    <h2>Engineering the future — from 1886</h2>
-    <p class="lead">
-      Luxury, safety and performance combined into iconic vehicles.
+    <h2>Engineering the future since 1886</h2>
+    <p style="color:var(--muted)">
+      Luxury, performance and iconic design — now even in pink.
     </p>
     <a class="cta" href="#models">Explore models</a>
   </div>
 
   <div class="media">
-    <img src="https://images.unsplash.com/photo-1549921296-3fdf1a3a5d8c?q=80&w=1400&auto=format&fit=crop" alt="Mercedes">
+    <img src="https://images.unsplash.com/photo-1621961451834-6f3c8d92c9db?q=80&w=1400&auto=format&fit=crop"
+         alt="Mercedes luxury car">
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="card">
-    <h3>About Mercedes</h3>
-    <p class="muted">
-      Mercedes-Benz is one of the oldest and most respected automobile manufacturers in the world.
-    </p>
-  </div>
-</section>
-
-<!-- HISTORY -->
-<section id="history">
-  <h3>History</h3>
-  <div class="timeline">
-    <div class="item">
-      <div class="dot">1886</div>
-      <div>
-        <strong>First automobile</strong>
-        <div class="muted">Karl Benz invents the automobile.</div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="dot">1926</div>
-      <div>
-        <strong>Mercedes-Benz formed</strong>
-        <div class="muted">Merger of Benz & Daimler.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MODELS -->
 <section id="models">
-  <h3>Flagship models</h3>
+<h3>Flagship models</h3>
 
-  <div class="models">
+<div class="models">
 
-    <!-- C-CLASS -->
-    <div class="model-card">
-      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400&auto=format&fit=crop" alt="C-Class">
-      <div class="model-info">
-        <h4>C-Class</h4>
-        <div class="muted">Compact executive sedan.</div>
-      </div>
-    </div>
-
-    <!-- EQS -->
-    <div class="model-card">
-      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop" alt="EQS">
-      <div class="model-info">
-        <h4>EQS</h4>
-        <div class="muted">Electric luxury flagship.</div>
-      </div>
-    </div>
-
-    <!-- G-CLASS -->
-    <div class="model-card">
-      <img src="https://images.unsplash.com/photo-1511911607278-9b1b0b4b6f8f?q=80&w=1400&auto=format&fit=crop" alt="G-Class">
-      <div class="model-info">
-        <h4>G-Class</h4>
-        <div class="muted">Luxury off-road SUV.</div>
-      </div>
-    </div>
-
-    <!-- PINK MERCEDES -->
-    <div class="model-card" style="box-shadow:0 0 0 2px rgba(255,105,180,.4)">
-      <img src="https://images.unsplash.com/photo-1605559424843-9e4c9c5db7e0?q=80&w=1400&auto=format&fit=crop" alt="Pink Mercedes">
-      <div class="model-info">
-        <h4 style="color:#ff69b4">Mercedes Custom (Pink)</h4>
-        <div class="muted">
-          Custom luxury edition – fashion & urban style.
-        </div>
-      </div>
-    </div>
-
+<!-- C-CLASS -->
+<div class="model-card">
+  <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400&auto=format&fit=crop">
+  <div class="model-info">
+    <h4>C-Class</h4>
+    <div style="color:var(--muted)">Executive daily sedan</div>
   </div>
+</div>
+
+<!-- EQS -->
+<div class="model-card">
+  <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop">
+  <div class="model-info">
+    <h4>EQS</h4>
+    <div style="color:var(--muted)">Electric luxury flagship</div>
+  </div>
+</div>
+
+<!-- G-CLASS -->
+<div class="model-card">
+  <img src="https://images.unsplash.com/photo-1511911607278-9b1b0b4b6f8f?q=80&w=1400&auto=format&fit=crop">
+  <div class="model-info">
+    <h4>G-Class</h4>
+    <div style="color:var(--muted)">Iconic off-road luxury</div>
+  </div>
+</div>
+
+<!-- ✅ MERCEDES ROZ -->
+<div class="model-card" style="box-shadow:0 0 0 2px rgba(255,105,180,.5)">
+  <img
+    src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=1400&auto=format&fit=crop"
+    alt="Pink Mercedes G-Class">
+  <div class="model-info">
+    <h4 style="color:#ff69b4">G-Class Pink Edition</h4>
+    <div style="color:var(--muted)">
+      Custom luxury Mercedes — bold pink statement
+    </div>
+  </div>
+</div>
+
+</div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="card">
-    <h3>Contact</h3>
-    <p class="muted">
-      Informational page – not affiliated with Mercedes-Benz.
-    </p>
-  </div>
+<div class="card">
+  <h3>Contact</h3>
+  <p style="color:var(--muted)">
+    Demo project • not affiliated with Mercedes-Benz
+  </p>
+</div>
 </section>
 
 <footer>
-  <div>© Mercedes (demo page)</div>
+  <div>© Mercedes Demo Page</div>
   <a href="#" style="color:var(--muted)">Back to top</a>
 </footer>
 
 </div>
-
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      document.querySelector(a.getAttribute('href'))
-        .scrollIntoView({behavior:'smooth'});
-    });
-  });
-</script>
-
 </body>
 </html>
