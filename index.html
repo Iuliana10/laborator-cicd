@@ -20,11 +20,15 @@
 body{
   margin:0;
   font-family:Inter,system-ui;
-  background:linear-gradient(180deg,#071021,#071827);
+  background:linear-gradient(180deg,#071021 0%, #071827 60%);
   color:#e6eef6;
 }
 
-.container{max-width:1100px;margin:40px auto;padding:24px}
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:24px;
+}
 
 header{
   display:flex;
@@ -32,11 +36,22 @@ header{
   align-items:center;
 }
 
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
 .logo{
-  width:46px;height:46px;border-radius:50%;
+  width:48px;
+  height:48px;
+  border-radius:50%;
   background:#000;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;color:var(--accent)
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:var(--accent);
 }
 
 nav a{
@@ -46,18 +61,23 @@ nav a{
   font-weight:600;
 }
 
+nav a:hover{color:var(--accent)}
+
 .hero{
   display:grid;
   grid-template-columns:1fr 420px;
   gap:28px;
-  margin-top:30px;
+  margin-top:28px;
 }
 
 .hero-card{
   background:rgba(255,255,255,0.04);
   padding:28px;
-  border-radius:18px;
+  border-radius:20px;
 }
+
+.hero h2{font-size:34px;margin:0 0 10px}
+.lead{color:var(--muted)}
 
 .cta{
   display:inline-block;
@@ -85,25 +105,77 @@ section{margin-top:40px}
   border-radius:14px;
 }
 
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.item{
+  display:flex;
+  gap:14px;
+}
+
+.dot{
+  min-width:46px;
+  height:46px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--accent);
+  font-weight:700;
+}
+
 .models{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+  gap:16px;
 }
 
+/* CARD NORMAL */
 .model-card{
   background:rgba(255,255,255,0.04);
   border-radius:14px;
   overflow:hidden;
+  position:relative;
 }
 
 .model-card img{
   width:100%;
-  height:180px;
+  height:170px;
   object-fit:cover;
 }
 
+/* 🔥 MERCEDES ROZ – OVERLAY */
+.model-card.pink::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(255,105,180,.75),
+    rgba(255,20,147,.75)
+  );
+  mix-blend-mode:color;
+  pointer-events:none;
+}
+
 .model-info{padding:14px}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  padding:12px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+th{color:var(--muted)}
 
 footer{
   margin-top:50px;
@@ -112,7 +184,7 @@ footer{
   color:var(--muted);
 }
 
-@media(max-width:900px){
+@media(max-width:880px){
   .hero{grid-template-columns:1fr}
 }
 </style>
@@ -122,94 +194,108 @@ footer{
 <div class="container">
 
 <header>
-  <div style="display:flex;align-items:center;gap:12px">
+  <div class="brand">
     <div class="logo">M</div>
     <div>
-      <strong>Mercedes</strong><br>
-      <span style="color:var(--muted)">Heritage • Innovation • Performance</span>
+      <h1>Mercedes</h1>
+      <div style="color:var(--muted)">Heritage • Innovation • Performance</div>
     </div>
   </div>
 
   <nav>
+    <a href="#about">About</a>
+    <a href="#history">History</a>
     <a href="#models">Models</a>
-    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="hero">
   <div class="hero-card">
-    <h2>Engineering the future since 1886</h2>
-    <p style="color:var(--muted)">
-      Luxury, performance and iconic design — now even in pink.
+    <h2>Engineering the future — from 1886</h2>
+    <p class="lead">
+      Iconic luxury, safety and performance — even in bold colors.
     </p>
     <a class="cta" href="#models">Explore models</a>
   </div>
 
   <div class="media">
-    <img src="https://images.unsplash.com/photo-1621961451834-6f3c8d92c9db?q=80&w=1400&auto=format&fit=crop"
-         alt="Mercedes luxury car">
+    <img src="https://images.unsplash.com/photo-1549921296-3fdf1a3a5d8c?q=80&w=1400&auto=format&fit=crop">
   </div>
 </div>
 
-<section id="models">
-<h3>Flagship models</h3>
-
-<div class="models">
-
-<!-- C-CLASS -->
-<div class="model-card">
-  <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400&auto=format&fit=crop">
-  <div class="model-info">
-    <h4>C-Class</h4>
-    <div style="color:var(--muted)">Executive daily sedan</div>
+<section id="about">
+  <div class="card">
+    <h3>About Mercedes</h3>
+    <p class="muted">
+      Mercedes-Benz is one of the world’s most prestigious automobile manufacturers,
+      known for safety, luxury and innovation.
+    </p>
   </div>
-</div>
-
-<!-- EQS -->
-<div class="model-card">
-  <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop">
-  <div class="model-info">
-    <h4>EQS</h4>
-    <div style="color:var(--muted)">Electric luxury flagship</div>
-  </div>
-</div>
-
-<!-- G-CLASS -->
-<div class="model-card">
-  <img src="https://images.unsplash.com/photo-1511911607278-9b1b0b4b6f8f?q=80&w=1400&auto=format&fit=crop">
-  <div class="model-info">
-    <h4>G-Class</h4>
-    <div style="color:var(--muted)">Iconic off-road luxury</div>
-  </div>
-</div>
-
-<!-- ✅ MERCEDES ROZ -->
-<div class="model-card" style="box-shadow:0 0 0 2px rgba(255,105,180,.5)">
-  <img
-    src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=1400&auto=format&fit=crop"
-    alt="Pink Mercedes G-Class">
-  <div class="model-info">
-    <h4 style="color:#ff69b4">G-Class Pink Edition</h4>
-    <div style="color:var(--muted)">
-      Custom luxury Mercedes — bold pink statement
-    </div>
-  </div>
-</div>
-
-</div>
 </section>
 
-<section id="contact">
-<div class="card">
-  <h3>Contact</h3>
-  <p style="color:var(--muted)">
-    Demo project • not affiliated with Mercedes-Benz
-  </p>
-</div>
+<section id="history">
+  <h3>History</h3>
+  <div class="timeline">
+    <div class="item">
+      <div class="dot">1886</div>
+      <div>
+        <strong>First automobile</strong>
+        <div class="muted">Karl Benz invents the car.</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="dot">1926</div>
+      <div>
+        <strong>Mercedes-Benz</strong>
+        <div class="muted">Benz & Daimler merge.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="models">
+  <h3>Flagship models</h3>
+
+  <div class="models">
+
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400&auto=format&fit=crop">
+      <div class="model-info">
+        <h4>C-Class</h4>
+        <div class="muted">Executive sedan</div>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop">
+      <div class="model-info">
+        <h4>EQS</h4>
+        <div class="muted">Electric luxury flagship</div>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1511911607278-9b1b0b4b6f8f?q=80&w=1400&auto=format&fit=crop">
+      <div class="model-info">
+        <h4>G-Class</h4>
+        <div class="muted">Luxury off-road SUV</div>
+      </div>
+    </div>
+
+    <!-- ✅ MERCEDES ROZ GARANTAT -->
+    <div class="model-card pink">
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400&auto=format&fit=crop">
+      <div class="model-info">
+        <h4 style="color:#ff69b4">Mercedes Pink Edition</h4>
+        <div class="muted">Custom painted — bold luxury</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <footer>
-  <div>© Mercedes Demo Page</div>
+  <div>© Mercedes — demo site</div>
   <a href="#" style="color:var(--muted)">Back to top</a>
 </footer>
 
